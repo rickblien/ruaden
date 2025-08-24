@@ -3,6 +3,7 @@ import sqlite3
 from database import DatabaseManager
 from ui import inject_css, auth_gate_tabs, topbar_account, inventory_page, recipes_page
 from config import APP_TITLE_EN
+from ui import shopping_list_page, feasibility_page
 
 st.set_page_config(page_title=APP_TITLE_EN, page_icon="🍳", layout="wide")
 
@@ -30,11 +31,15 @@ def main():
         auth_gate_tabs()
         return
     topbar_account()
-    tabs = st.tabs(["Inventory", "Recipes"])
+    tabs = st.tabs(["Inventory", "Recipes", "Shopping List", "Feasibility & Shopping"])
     with tabs[0]:
         inventory_page()
     with tabs[1]:
         recipes_page()
+    with tabs[2]:
+        shopping_list_page()
+    with tabs[3]:
+        feasibility_page()
 
 if __name__ == "__main__":
 
